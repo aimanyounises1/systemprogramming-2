@@ -28,6 +28,7 @@ sig_atomic_t sig_num;
 		sleep(1); 
 		val++;
 		write(fd[1], &val, sizeof(val));
+		//send signal to father proccess
 		kill(getppid(), SIGUSR1); 
 	}
 	else{ 
@@ -52,6 +53,7 @@ sig_atomic_t sig_num;
 		sleep(1);
 		val++;
 		write(fd[1], &val, sizeof(val));
+		//send signal to child proccess
     	kill(pid, SIGUSR1);
     	}
     	else{

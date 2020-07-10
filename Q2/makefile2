@@ -1,0 +1,37 @@
+CC=gcc
+FLAGS=-Wall -g
+LIBFLAGS=-Wall -g -shared
+
+all: deadlock dining_philosophers livelock noDeadLock  noStarvation starvation
+
+deadlock: deadlock.c
+	gcc deadlock.c -o deadlock -lpthread
+
+dining_philosophers: dining_philosophers.c
+	gcc  dining_philosophers.c -o dining_philosophers -lpthread
+
+
+livelock: livelock.c
+	gcc livelock.c -o livelock -lpthread
+	
+
+noDeadLock: noDeadLock.c
+	gcc noDeadLock.c -o noDeadLock -lpthread
+	
+
+noStarvation: noStarvation.c
+	gcc noStarvation.c -o noStarvation -lpthread
+	
+
+starvation: starvation.c
+	gcc starvation.c -o starvation -lpthread
+	
+
+
+
+
+
+.PHONY: clean all
+
+clean:
+	rm -f deadlock dining_philosophers livelock noDeadLock  noStarvation starvation *.o 
